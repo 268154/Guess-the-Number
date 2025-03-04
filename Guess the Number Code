@@ -1,0 +1,42 @@
+import random
+
+class User:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def assign_score(self, score):
+        self.score = score
+
+    def display_properties(self):
+        print("Properties of the User:")
+        print("Name:", self.name)
+        print("Score:", self.score)
+
+def game():
+    guess_attempts = 0
+    random_number = random.randint(1, 100)
+
+    # Ask user for name
+    print("Please input your name:")
+    name_input = input()
+
+    # Creating a user
+    user1 = User(name_input, 0)
+
+    # Display user properties
+    user1.display_properties()
+
+    while True:
+        player_guess = int(input("Guess a number between 1-100: "))
+
+        if player_guess == random_number:
+            print("Congratulations! You guessed the correct number.")
+            break
+        elif player_guess > random_number:
+            print("The correct number is lower.")
+        else:
+            print("The correct number is higher.")
+
+
+game()
